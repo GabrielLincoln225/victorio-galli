@@ -1,0 +1,265 @@
+@import "tailwindcss";
+@import "@fontsource-variable/montserrat/wght.css";
+@import "@fontsource-variable/inter/wght.css";
+@import "@fontsource/playfair-display/latin-700-italic.css";
+
+/* ==========================================================================
+   Tokens — Victório Galli 1123
+   Paleta fechada: navy, royal, amarelo, branco (+ transparências delas).
+   ========================================================================== */
+@theme {
+  --color-*: initial;
+  --color-navy: #011b72;
+  --color-royal: #0041d3;
+  --color-yellow: #fec601;
+  --color-white: #ffffff;
+  --color-paper: #f7f8fc; /* off-white: navy a 3% sobre branco */
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-display: "Montserrat Variable", "Montserrat", system-ui, sans-serif;
+  --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-accent: "Playfair Display", Georgia, serif;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-pill: 999px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+}
+
+:root {
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --container: 82.5rem;
+  --section-y: clamp(5rem, 11vw, 10rem);
+  --header-h: 4.5rem;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--color-navy);
+  }
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-navy);
+    background: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  section[id] {
+    scroll-margin-top: var(--header-h);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-yellow);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  img,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+@utility container-site {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@utility section-y {
+  padding-block: var(--section-y);
+}
+
+/* Label de seção: quadradinho amarelo + texto em caixa alta */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+}
+
+@utility accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Grão leve (monocromático) para o fundo royal */
+@utility grain {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("/textures/grain.png");
+    background-size: 160px 160px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(to bottom, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 7px);
+  }
+}
+
+/* ==========================================================================
+   Hero — estados sem JS / reduced motion
+   Com a classe .motion (JS + movimento permitido) a timeline controla tudo.
+   Sem ela, só o bloco final aparece, completo e estático.
+   ========================================================================== */
+.motion .hero-stage[data-stage="2"],
+.motion .hero-stage[data-stage="3"],
+.motion .hero-stage[data-stage="final"] {
+  opacity: 0;
+  visibility: hidden;
+}
+html:not(.motion) .hero-stage[data-stage="1"],
+html:not(.motion) .hero-stage[data-stage="2"],
+html:not(.motion) .hero-stage[data-stage="3"],
+html:not(.motion) .hero-scroll-hint {
+  display: none;
+}
+.motion [data-hero-video]:not(.is-playing) {
+  opacity: 0;
+}
+/* Sem movimento o vídeo não toca: a <img> do poster (responsiva) fica visível */
+html:not(.motion) [data-hero-video] {
+  display: none;
+}
+html:not(.motion) .hero-shade {
+  opacity: 0.7;
+}
+
+/* Urna */
+.urna-cell {
+  box-shadow:
+    inset 0 -0.35em 0.6em -0.3em rgb(1 27 114 / 0.35),
+    inset 0 0.12em 0.25em rgb(255 255 255 / 0.18);
+}
+.urna-cell[data-tone="yellow"] {
+  box-shadow:
+    inset 0 -0.35em 0.6em -0.3em rgb(1 27 114 / 0.22),
+    inset 0 0.12em 0.25em rgb(255 255 255 / 0.45);
+}
+
+/* Galeria da campanha: carrossel nativo no mobile */
+.snap-row {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes sheet-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+@keyframes sheet-out {
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes scroll-hint {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/* Máscaras do SplitText: folga vertical para acentos e descendentes não serem cortados */
+.split-char-mask,
+.split-line-mask {
+  padding-block: 0.14em;
+  margin-block: -0.14em;
+}
+
+/* Header só existe depois da hero quando há movimento; o GSAP assume a partir daí */
+.motion .site-header {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+/* Sem movimento o header fica sempre visível: a hero desce para não encostar nele */
+@media (max-width: 767px) {
+  html:not(.motion) .hero-content {
+    padding-top: calc(var(--header-h) + 1.5rem);
+  }
+}
+
+/* Trilha da hero: o conteúdo fica sticky enquanto a trilha rola (pin sem reparent no DOM).
+   Definida no CSS para existir desde a primeira pintura, sem salto de layout. */
+.motion .hero-track {
+  height: 350svh;
+}
+@media (max-width: 767px) {
+  .motion .hero-track {
+    height: 280svh;
+  }
+}
