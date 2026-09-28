@@ -25,14 +25,10 @@ Tudo em `src/config/site.ts`:
 | ----------------- | --------------------- | ------------------------------------------------------------------ |
 | `SITE_URL`        | `https://victorio-galli.vercel.app` | Trocar quando houver domínio próprio (afeta `og:*`, `canonical` e a mensagem de compartilhar) |
 | `WHATSAPP_NUMBER` | `[55DDNÚMERO]`        | "Fale com a campanha" e o ícone de WhatsApp do rodapé ficam escondidos |
-| `CNPJ`            | `[CNPJ DA CAMPANHA]`  | Aparece assim no rodapé                                            |
 
 Arquivos que ainda não existem (o site já trata a ausência):
 
 - `public/brand/logo-galli.png` → sem ele, header e rodapé mostram o lettering "GALLI 1123".
-- `public/site/quem-e.jpg`
-  → hoje é um **placeholder gerado** com o rótulo `[...]` visível. Coloque a foto real com esse
-  nome, apague os `.webp` correspondentes e rode `npm run assets` para gerar os WebP.
 
 ## Decisões técnicas
 
@@ -45,8 +41,8 @@ Arquivos que ainda não existem (o site já trata a ausência):
 - **Pin da hero com `position: sticky`** (trilha de 350svh no desktop / 280svh no mobile, definida no CSS),
   controlada por um ScrollTrigger com `scrub: 0.8`. Evita salto de layout e repintura do LCP.
 - **Laço da hero** (`scripts/hero-video.mjs`): o vídeo original tem a cabeça tremendo entre 2,6 s e 5,3 s
-  e não emenda com o começo. O laço usa só o trecho calmo (0–2,6 s) em vai-e-volta, sem as faixas pretas
-  do original. No mobile é um recorte vertical 720×1080 (nítido, sem ampliar).
+  e não emenda com o começo. O laço usa só o trecho calmo (0–2,6 s) com o tempo remapeado como um
+  pêndulo (desacelera até parar em cada ponta, sem tranco), sem as faixas pretas do original. No mobile é um recorte vertical 720×1080 (nítido, sem ampliar).
 - **Vídeo da hero**: `autoplay muted loop playsinline preload="auto"`, independente do scroll. A fonte é
   anexada logo após a primeira pintura; até lá aparece o poster (`<img fetchpriority="high">`) e o vídeo
   entra por cima com fade quando começa a tocar.

@@ -366,7 +366,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Base escura: o aviso de IA e o "role para baixo" ficam sobre as mãos e a camisa clara */}
+        {/* Base escura: o "role para baixo" fica sobre as mãos e a camisa clara */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-[linear-gradient(to_top,rgb(1_27_114/0.9),rgb(1_27_114/0.55)_45%,transparent)] md:h-28"
@@ -382,10 +382,6 @@ export function Hero() {
           </span>
           role para baixo
         </div>
-
-        <p className="absolute inset-x-0 bottom-3 px-[var(--gutter)] text-[0.7rem] leading-tight text-white/90 md:bottom-4 md:text-right md:text-xs">
-          Conteúdo produzido com auxílio de inteligência artificial.
-        </p>
       </div>
     </section>
   );

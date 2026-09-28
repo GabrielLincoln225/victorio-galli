@@ -111,7 +111,7 @@ export function QuemE() {
                 height={1350}
                 loading="lazy"
                 decoding="async"
-                className="size-full object-cover object-[60%_20%]"
+                className="size-full object-cover object-[50%_22%]"
               />
             </picture>
           </div>

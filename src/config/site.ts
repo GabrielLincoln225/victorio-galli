@@ -6,7 +6,7 @@ export const SITE_URL = "https://victorio-galli.vercel.app";
 export const INSTAGRAM_URL = "https://www.instagram.com/victoriogallimt";
 export const INSTAGRAM_HANDLE = "@victoriogallimt";
 export const WHATSAPP_NUMBER = "[55DDNÚMERO]";
-export const CNPJ = "[CNPJ DA CAMPANHA]";
+export const CNPJ = "68.578.298/0001-55";
 
 export const SHARE_MESSAGE =
   "Victório Galli, Deputado Federal 1123. Vote em quem já conhece o caminho. Conheça: " + SITE_URL;
