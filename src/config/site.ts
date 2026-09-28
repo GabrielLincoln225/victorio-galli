@@ -2,7 +2,7 @@
  * Constantes do site. Todo link, mensagem e dado de contato sai daqui.
  * Valores entre [colchetes] são placeholders que ainda precisam ser preenchidos.
  */
-export const SITE_URL = "[URL FINAL]";
+export const SITE_URL = "https://victorio-galli.vercel.app";
 export const INSTAGRAM_URL = "https://www.instagram.com/victoriogallimt";
 export const INSTAGRAM_HANDLE = "@victoriogallimt";
 export const WHATSAPP_NUMBER = "[55DDNÚMERO]";

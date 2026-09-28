@@ -13,7 +13,8 @@ npm run preview   # serve o dist/ (http://localhost:4173)
 npm run assets    # regenera WebP, favicons, og/share.jpg e placeholders (requer Chrome)
 ```
 
-Deploy na Vercel: framework Vite, build `npm run build`, saída `dist`.
+Deploy: projeto `victorio-galli` na Vercel, conectado a este repositório. Todo push na `main` publica em
+https://victorio-galli.vercel.app (framework Vite, build `npm run build`, saída `dist`).
 
 ## O que falta preencher
 
@@ -21,7 +22,7 @@ Tudo em `src/config/site.ts`:
 
 | Constante         | Hoje                  | Efeito enquanto for placeholder                                    |
 | ----------------- | --------------------- | ------------------------------------------------------------------ |
-| `SITE_URL`        | `[URL FINAL]`         | `og:url`, `canonical` e `og:image` inválidos; mensagem de compartilhar sem link |
+| `SITE_URL`        | `https://victorio-galli.vercel.app` | Trocar quando houver domínio próprio (afeta `og:*`, `canonical` e a mensagem de compartilhar) |
 | `WHATSAPP_NUMBER` | `[55DDNÚMERO]`        | "Fale com a campanha" e o ícone de WhatsApp do rodapé ficam escondidos |
 | `CNPJ`            | `[CNPJ DA CAMPANHA]`  | Aparece assim no rodapé                                            |
 | `CAMPAIGN_VIDEOS[].url` | `[URL DO REEL]` | O card leva ao perfil do Instagram                                 |
