@@ -39,21 +39,36 @@ export const NAV_LINKS = [
 ] as const;
 
 export const CAMPAIGN_VIDEOS = [
-  { id: "experiencia", title: "Quem já conhece o caminho", thumb: "/campanha/experiencia", url: "[URL DO REEL]" },
+  {
+    id: "experiencia",
+    title: "Quem já conhece o caminho",
+    thumb: "/campanha/experiencia",
+    url: "https://www.instagram.com/reel/Ddy_ZB5BGQL/",
+  },
   {
     id: "agricultura",
     title: "R$ 5,4 milhões para a agricultura familiar",
     thumb: "/campanha/agricultura",
-    url: "[URL DO REEL]",
+    url: "https://www.instagram.com/reel/DdrQ5PRBNFJ/",
   },
-  { id: "educacao", title: "R$ 7 milhões para a educação", thumb: "/campanha/educacao", url: "[URL DO REEL]" },
+  {
+    id: "educacao",
+    title: "R$ 7 milhões para a educação",
+    thumb: "/campanha/educacao",
+    url: "https://www.instagram.com/reel/DdosF7Ghsaq/",
+  },
   {
     id: "infraestrutura",
     title: "Quase R$ 14 milhões para infraestrutura",
     thumb: "/campanha/infraestrutura",
-    url: "[URL DO REEL]",
+    url: "https://www.instagram.com/reel/DdmHW6iBynU/",
   },
-  { id: "historia", title: "Das 3 da manhã a Brasília", thumb: "/campanha/historia", url: "[URL DO REEL]" },
+  {
+    id: "historia",
+    title: "Das 3 da manhã a Brasília",
+    thumb: "/campanha/historia",
+    url: "https://www.instagram.com/reel/DdjiilrBKb2/",
+  },
 ] as const;
 
 /** Enquanto a URL do reel for placeholder, o card leva ao perfil do Instagram. */

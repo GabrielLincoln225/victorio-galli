@@ -197,8 +197,8 @@ export function Campanha() {
                       <img
                         src={`${v.thumb}.jpg`}
                         alt=""
-                        width={540}
-                        height={960}
+                        width={720}
+                        height={1280}
                         loading="lazy"
                         decoding="async"
                         className="size-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.03]"

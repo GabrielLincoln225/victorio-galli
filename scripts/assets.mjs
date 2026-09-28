@@ -130,7 +130,7 @@ async function main() {
       const src = pub(dir, f);
       const out = src.replace(/\.(jpe?g|png)$/i, ".webp");
       await sharp(src)
-        .resize({ width: dir === "site" ? 1080 : 540, withoutEnlargement: true })
+        .resize({ width: dir === "site" ? 1080 : 720, withoutEnlargement: true })
         .webp({ quality: 74 })
         .toFile(out);
       if (dir === "site") {

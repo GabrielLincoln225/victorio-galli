@@ -26,14 +26,13 @@ Tudo em `src/config/site.ts`:
 | `SITE_URL`        | `https://victorio-galli.vercel.app` | Trocar quando houver domínio próprio (afeta `og:*`, `canonical` e a mensagem de compartilhar) |
 | `WHATSAPP_NUMBER` | `[55DDNÚMERO]`        | "Fale com a campanha" e o ícone de WhatsApp do rodapé ficam escondidos |
 | `CNPJ`            | `[CNPJ DA CAMPANHA]`  | Aparece assim no rodapé                                            |
-| `CAMPAIGN_VIDEOS[].url` | `[URL DO REEL]` | O card leva ao perfil do Instagram                                 |
 
 Arquivos que ainda não existem (o site já trata a ausência):
 
 - `public/brand/logo-galli.png` → sem ele, header e rodapé mostram o lettering "GALLI 1123".
-- `public/site/quem-e.jpg` e `public/campanha/{experiencia,agricultura,educacao,infraestrutura,historia}.jpg`
-  → hoje são **placeholders gerados** com o rótulo `[...]` visível. Coloque as fotos reais com esses
-  nomes, apague os `.webp` correspondentes e rode `npm run assets` para gerar os WebP.
+- `public/site/quem-e.jpg`
+  → hoje é um **placeholder gerado** com o rótulo `[...]` visível. Coloque a foto real com esse
+  nome, apague os `.webp` correspondentes e rode `npm run assets` para gerar os WebP.
 
 ## Decisões técnicas
 
