@@ -8,12 +8,6 @@ import { AnchorLink, ExternalLink } from "@/components/links";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/config/site";
 import { analytics } from "@/lib/analytics";
 
-/**
- * Hero: vídeo em loop (toca sozinho) + textos controlados pelo scroll.
- * Uma única timeline com scrub, em unidades de 0 a 100 (= % do scroll pinado):
- *   0–25 etapa 1 · 25–50 etapa 2 · 50–75 etapa 3 · 75–100 bloco final.
- * O vídeo inteiro faz zoom 1 → 1.08 e o gradiente escurece conforme avança.
- */
 /** Executa `fn` depois do First Contentful Paint (com fallback). Devolve um cancelamento. */
 function afterFirstPaint(fn: () => void) {
   let done = false;
@@ -43,6 +37,13 @@ function afterFirstPaint(fn: () => void) {
   };
 }
 
+/**
+ * Hero: vídeo em loop (toca sozinho) + textos controlados pelo scroll.
+ * Uma única timeline com scrub, em unidades de 0 a 100 (= % do scroll pinado):
+ *   0–25 etapa 1 · 25–50 etapa 2 · 50–75 etapa 3 · 75–100 bloco final.
+ * O vídeo inteiro faz zoom 1 → 1.08 e o gradiente escurece conforme avança.
+ * Vídeos e posters são gerados por scripts/hero-video.mjs (mobile = recorte vertical).
+ */
 export function Hero() {
   const root = useRef<HTMLElement>(null);
   const video = useRef<HTMLVideoElement>(null);
@@ -209,27 +210,27 @@ export function Hero() {
         >
           {/* Poster real (LCP): aparece de imediato; o vídeo entra por cima quando começa a tocar */}
           <picture>
-            <source srcSet="/hero/hero-poster-960.webp" media="(max-width: 767px)" type="image/webp" />
+            <source srcSet="/hero/hero-poster-mobile.webp" media="(max-width: 767px)" type="image/webp" />
             <img
               src="/hero/hero-poster.webp"
               alt=""
               width={1920}
               height={1080}
               fetchPriority="high"
-              className="absolute inset-0 size-full object-cover object-[70%_center] md:object-center"
+              className="absolute inset-0 size-full object-cover object-center"
             />
           </picture>
           <video
             ref={video}
             data-hero-video
             onPlaying={(e) => e.currentTarget.classList.add("is-playing")}
-            className="relative size-full object-cover object-[70%_center] transition-opacity duration-500 md:object-center"
+            className="relative size-full object-cover object-center transition-opacity duration-500"
             autoPlay
             muted
             loop
             playsInline
             preload="auto"
-            poster="/hero/hero-poster-960.webp"
+            poster="/hero/hero-poster-mobile.webp"
             aria-hidden="true"
             tabIndex={-1}
             disablePictureInPicture
@@ -365,10 +366,16 @@ export function Hero() {
           </div>
         </div>
 
+        {/* Base escura: o aviso de IA e o "role para baixo" ficam sobre as mãos e a camisa clara */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-[linear-gradient(to_top,rgb(1_27_114/0.9),rgb(1_27_114/0.55)_45%,transparent)] md:h-28"
+        />
+
         {/* Indicador de scroll (etapa 1) */}
         <div
           aria-hidden="true"
-          className="hero-scroll-hint pointer-events-none absolute bottom-12 left-[var(--gutter)] flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/80 md:bottom-14"
+          className="hero-scroll-hint pointer-events-none absolute bottom-12 left-[var(--gutter)] flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/90 md:bottom-14"
         >
           <span className="relative block h-9 w-px overflow-hidden bg-white/25">
             <span className="absolute inset-x-0 top-0 h-1/2 animate-[scroll-hint_1.8s_var(--ease-out-quart)_infinite] bg-yellow" />
@@ -376,7 +383,7 @@ export function Hero() {
           role para baixo
         </div>
 
-        <p className="absolute inset-x-0 bottom-3 px-[var(--gutter)] text-[0.7rem] leading-tight text-white/80 md:bottom-4 md:text-right md:text-xs">
+        <p className="absolute inset-x-0 bottom-3 px-[var(--gutter)] text-[0.7rem] leading-tight text-white/90 md:bottom-4 md:text-right md:text-xs">
           Conteúdo produzido com auxílio de inteligência artificial.
         </p>
       </div>

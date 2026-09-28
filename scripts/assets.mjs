@@ -55,10 +55,7 @@ async function main() {
 
   // 1) WebP da hero
   await sharp(pub("hero", "hero-poster.jpg")).webp({ quality: 72 }).toFile(pub("hero", "hero-poster.webp"));
-  await sharp(pub("hero", "hero-poster.jpg"))
-    .resize({ width: 960 })
-    .webp({ quality: 70 })
-    .toFile(pub("hero", "hero-poster-960.webp"));
+  await sharp(pub("hero", "hero-poster-mobile.jpg")).webp({ quality: 60 }).toFile(pub("hero", "hero-poster-mobile.webp"));
   await sharp(pub("hero", "galli-avatar.jpg"))
     .resize(192, 192)
     .webp({ quality: 80 })

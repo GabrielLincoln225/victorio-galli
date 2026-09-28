@@ -115,6 +115,7 @@ export function Vote() {
       {/* Fundo: poster (mobile) + vídeo da hero (desktop) + gradiente navy forte */}
       <div aria-hidden className="absolute inset-0 -z-10">
         <picture>
+          <source srcSet="/hero/hero-poster-mobile.webp" media="(max-width: 767px)" type="image/webp" />
           <source srcSet="/hero/hero-poster.webp" type="image/webp" />
           <img
             src="/hero/hero-poster.jpg"
@@ -123,7 +124,7 @@ export function Vote() {
             height={1080}
             loading="lazy"
             decoding="async"
-            className="size-full object-cover object-[70%_center]"
+            className="size-full object-cover object-center md:object-[70%_center]"
           />
         </picture>
         <video

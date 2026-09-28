@@ -11,6 +11,7 @@ npm run dev       # desenvolvimento (http://localhost:5173)
 npm run build     # typecheck + build + pré-render → dist/
 npm run preview   # serve o dist/ (http://localhost:4173)
 npm run assets    # regenera WebP, favicons, og/share.jpg e placeholders (requer Chrome)
+node scripts/hero-video.mjs  # regera os vídeos e posters da hero a partir do original (requer ffmpeg)
 ```
 
 Deploy: projeto `victorio-galli` na Vercel, conectado a este repositório. Todo push na `main` publica em
@@ -44,6 +45,9 @@ Arquivos que ainda não existem (o site já trata a ausência):
   para não travar o celular na hidratação.
 - **Pin da hero com `position: sticky`** (trilha de 350svh no desktop / 280svh no mobile, definida no CSS),
   controlada por um ScrollTrigger com `scrub: 0.8`. Evita salto de layout e repintura do LCP.
+- **Laço da hero** (`scripts/hero-video.mjs`): o vídeo original tem a cabeça tremendo entre 2,6 s e 5,3 s
+  e não emenda com o começo. O laço usa só o trecho calmo (0–2,6 s) em vai-e-volta, sem as faixas pretas
+  do original. No mobile é um recorte vertical 720×1080 (nítido, sem ampliar).
 - **Vídeo da hero**: `autoplay muted loop playsinline preload="auto"`, independente do scroll. A fonte é
   anexada logo após a primeira pintura; até lá aparece o poster (`<img fetchpriority="high">`) e o vídeo
   entra por cima com fade quando começa a tocar.
