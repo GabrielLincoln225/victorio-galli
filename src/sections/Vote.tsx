@@ -13,7 +13,7 @@ import { Countdown } from "@/components/Countdown";
 /**
  * Vote — fecha o ciclo com o vídeo da hero ao fundo (só no desktop; no mobile,
  * o poster). Uma timeline na entrada: título por linhas, urna rolando,
- * "Galo, Galo, Galo" com bounce e os botões por último.
+ * "Galli, Galli, Galli" com bounce e os botões por último.
  */
 export function Vote() {
   const root = useRef<HTMLElement>(null);
@@ -94,7 +94,7 @@ export function Vote() {
 
             tl.fromTo(q("[data-kicker-plain]"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, stagger: 0.25 }, 1.9)
               .fromTo(
-                q("[data-galo]"),
+                q("[data-galli]"),
                 { autoAlpha: 0, y: 26, scale: 0.6 },
                 { autoAlpha: 1, y: 0, scale: 1, duration: 0.55, stagger: 0.13, ease: "back.out(3)" },
                 2.05,
@@ -176,14 +176,14 @@ export function Vote() {
 
         <p className="mt-10 font-display text-[1.35rem] font-extrabold leading-snug tracking-[-0.01em] md:text-[1.9rem]">
           <span data-kicker-plain>É </span>
-          <span data-galo className="inline-block text-yellow">
-            Galo,
+          <span data-galli className="inline-block text-yellow">
+            Galli,
           </span>{" "}
-          <span data-galo className="inline-block text-yellow">
-            Galo,
+          <span data-galli className="inline-block text-yellow">
+            Galli,
           </span>{" "}
-          <span data-galo className="inline-block text-yellow">
-            Galo,
+          <span data-galli className="inline-block text-yellow">
+            Galli,
           </span>{" "}
           <span data-kicker-plain>é onze e vinte e três.</span>
         </p>
