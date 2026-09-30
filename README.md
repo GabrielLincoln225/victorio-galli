@@ -15,7 +15,7 @@ node scripts/hero-video.mjs  # regera os vídeos e posters da hero a partir do o
 ```
 
 Deploy: projeto `victorio-galli` na Vercel, conectado a este repositório. Todo push na `main` publica em
-https://victorio-galli.vercel.app (framework Vite, build `npm run build`, saída `dist`).
+https://www.victoriogallimt.com (framework Vite, build `npm run build`, saída `dist`).
 
 ## O que falta preencher
 
@@ -23,7 +23,7 @@ Tudo em `src/config/site.ts`:
 
 | Constante         | Hoje                  | Efeito enquanto for placeholder                                    |
 | ----------------- | --------------------- | ------------------------------------------------------------------ |
-| `SITE_URL`        | `https://victorio-galli.vercel.app` | Trocar quando houver domínio próprio (afeta `og:*`, `canonical` e a mensagem de compartilhar) |
+| `SITE_URL`        | `https://www.victoriogallimt.com` | Domínio oficial (afeta `og:*`, `canonical` e a mensagem de compartilhar) |
 | `WHATSAPP_NUMBER` | `[55DDNÚMERO]`        | "Fale com a campanha" e o ícone de WhatsApp do rodapé ficam escondidos |
 
 Arquivos que ainda não existem (o site já trata a ausência):
