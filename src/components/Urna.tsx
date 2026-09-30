@@ -22,7 +22,7 @@ export type UrnaHandle = {
 
 type UrnaProps = {
   size?: Size;
-  /** Mostra "Para apertar" acima das casas. */
+  /** Mostra "Digite" acima das casas. */
   label?: boolean;
   /** "inview": rola sozinha ao entrar na tela (uma vez). "manual": a seção controla via ref.roll(). */
   trigger?: "inview" | "manual";
@@ -72,7 +72,7 @@ export const Urna = forwardRef<UrnaHandle, UrnaProps>(function Urna(
 
   return (
     <div ref={root} className={cn("inline-flex flex-col items-start", className)}>
-      {label && <p className={cn("accent mb-[0.35em] leading-none", SIZE[size].label, labelClassName)}>Para apertar</p>}
+      {label && <p className={cn("accent mb-[0.35em] leading-none", SIZE[size].label, labelClassName)}>Digite</p>}
       <div
         role="img"
         aria-label="Número 1123"

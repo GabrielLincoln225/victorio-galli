@@ -164,6 +164,14 @@ export function Hero() {
             const roll = urna.current?.roll();
             if (roll) tl.add(roll.paused(false).duration(5), 88);
 
+            // "e confirme" fecha a frase assim que os números param
+            tl.fromTo(
+              q("[data-final-confirm]"),
+              { autoAlpha: 0, y: -8 },
+              { autoAlpha: 1, y: 0, duration: 2, ease: EASE.soft },
+              91,
+            );
+
             tl.fromTo(
               q("[data-final-tail]"),
               { autoAlpha: 0, y: 16 },
@@ -336,11 +344,14 @@ export function Hero() {
                 />
                 <div>
                   <p data-final-urna-label className="accent mb-1.5 text-xl leading-none md:text-2xl">
-                    Para apertar
+                    Digite
                   </p>
                   <div data-final-urna>
                     <Urna ref={urna} size="md" trigger="manual" />
                   </div>
+                  <p data-final-confirm className="accent mt-1.5 text-xl leading-none md:text-2xl">
+                    e confirme
+                  </p>
                 </div>
               </div>
 

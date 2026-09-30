@@ -84,6 +84,14 @@ export function Vote() {
             const roll = urna.current?.roll();
             if (roll) tl.add(roll.paused(false), 0.7);
 
+            // "e confirme" fecha a frase assim que os números param
+            tl.fromTo(
+              q("[data-urna-confirm]"),
+              { autoAlpha: 0, y: -10 },
+              { autoAlpha: 1, y: 0, duration: 0.6, ease: EASE.soft },
+              1.65,
+            );
+
             tl.fromTo(q("[data-kicker-plain]"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, stagger: 0.25 }, 1.9)
               .fromTo(
                 q("[data-galo]"),
@@ -158,9 +166,12 @@ export function Vote() {
 
         <div className="mt-12 flex flex-col items-center md:mt-16">
           <p data-urna-label className="accent mb-3 text-[1.75rem] leading-none md:text-[2.25rem]">
-            Para apertar
+            Digite
           </p>
           <Urna ref={urna} size="lg" trigger="manual" />
+          <p data-urna-confirm className="accent mt-3 text-[1.75rem] leading-none md:text-[2.25rem]">
+            e confirme
+          </p>
         </div>
 
         <p className="mt-10 font-display text-[1.35rem] font-extrabold leading-snug tracking-[-0.01em] md:text-[1.9rem]">

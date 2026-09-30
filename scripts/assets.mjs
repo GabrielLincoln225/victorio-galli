@@ -166,8 +166,9 @@ async function main() {
           <span style="width:12px;height:12px;background:${YELLOW}"></span>Deputado Federal
         </div>
         <div style="margin-top:26px;font:900 104px/.9 Montserrat;letter-spacing:-.035em">VICTÓRIO<br>GALLI</div>
-        <div style="margin-top:34px;font:italic 700 36px/1 Playfair">Para apertar</div>
+        <div style="margin-top:34px;font:italic 700 36px/1 Playfair">Digite</div>
         <div style="margin-top:14px">${urna(132)}</div>
+        <div style="margin-top:16px;font:italic 700 36px/1 Playfair">e confirme</div>
       </div>
     </div>`;
   let q = 84;

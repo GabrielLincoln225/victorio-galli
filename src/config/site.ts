@@ -26,7 +26,7 @@ export const ELECTION_DATE_CUIABA = "2026-10-04";
 export const SEO = {
   title: "Victório Galli 1123 | Deputado Federal por Mato Grosso",
   description:
-    "Victório Galli, pastor e professor, candidato a Deputado Federal por Mato Grosso pelo Progressistas. Para apertar: 1123. Vote em quem já conhece o caminho.",
+    "Victório Galli, pastor e professor, candidato a Deputado Federal por Mato Grosso pelo Progressistas. Digite 1123 e confirme. Vote em quem já conhece o caminho.",
   ogImage: SITE_URL + "/og/share.jpg",
   themeColor: "#011B72",
 };
